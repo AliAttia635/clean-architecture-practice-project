@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:clean_architecture_practice/core/errors/exceptions.dart';
 import 'package:clean_architecture_practice/core/params/params.dart';
+import 'package:clean_architecture_practice/features/user/data/mappers/user_mapper.dart';
+import 'package:clean_architecture_practice/features/user/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:clean_architecture_practice/core/errors/failure.dart';
@@ -15,11 +17,16 @@ class UserRepoImpl implements UserRepo {
   });
 
   @override
-  Future<Either<Failure, UserModel>> getUser(
+  Future<Either<Failure, UserEntity>> getUser(
       {required UserParams userParams}) async {
     try {
-      final userResult = await userRemoteDataSource.getUser(userParams);
-      return Right(userResult);
+      final UserModel userResult =
+          await userRemoteDataSource.getUser(userParams);
+
+      // mapping the response model to entity
+      UserEntity userEntity = UserMapper.toUserEntity(userResult);
+
+      return Right(userEntity);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     }
