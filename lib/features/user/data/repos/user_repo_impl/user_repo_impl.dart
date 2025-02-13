@@ -23,10 +23,7 @@ class UserRepoImpl implements UserRepo {
       final UserModel userResult =
           await userRemoteDataSource.getUser(userParams);
 
-      // mapping the response model to entity
-      UserEntity userEntity = UserMapper.toUserEntity(userResult);
-
-      return Right(userEntity);
+      return Right(userResult);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     }
