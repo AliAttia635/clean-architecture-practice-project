@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:clean_architecture_practice/core/errors/exceptions.dart';
 import 'package:clean_architecture_practice/core/params/params.dart';
+import 'package:clean_architecture_practice/features/user/data/mappers/User_Mapper.dart';
 import 'package:clean_architecture_practice/features/user/data/mappers/user_mapper.dart';
 import 'package:clean_architecture_practice/features/user/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
@@ -23,7 +24,10 @@ class UserRepoImpl implements UserRepo {
       final UserModel userResult =
           await userRemoteDataSource.getUser(userParams);
 
-      return Right(userResult);
+      // mapping the response model to entity
+      UserEntity userEntity = UserMapper.toUserEntity(userResult);
+
+      return Right(userEntity);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     }

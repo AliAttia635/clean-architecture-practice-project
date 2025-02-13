@@ -15,13 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-<<<<<<< HEAD
 Flutter Clean Architecture Diagram :
-=======
-
-Flutter Clean Architecture Diagram : 
-
->>>>>>> f038bb1262bf618042ec6e96bf57894794547ad2
 
 ![clean_architecture](https://github.com/user-attachments/assets/c980dcff-eb91-41e1-9fca-c68c20cb46e8)
 

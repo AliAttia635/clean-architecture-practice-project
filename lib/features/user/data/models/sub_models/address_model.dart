@@ -1,14 +1,19 @@
 import 'package:clean_architecture_practice/core/networking/api_constants.dart';
 import 'package:clean_architecture_practice/features/user/data/models/sub_models/geo_model.dart';
-import 'package:clean_architecture_practice/features/user/domain/entities/sub_entities/address_entity.dart';
 
-class AddressModel extends AddressEntity {
+class AddressModel {
+  final String street;
+  final String suite;
+  final String city;
+  final String zipcode;
+  final GeoModel geo;
+
   AddressModel({
-    required super.street,
-    required super.suite,
-    required super.city,
-    required super.zipcode,
-    required super.geo,
+    required this.street,
+    required this.suite,
+    required this.city,
+    required this.zipcode,
+    required this.geo,
   });
 
   factory AddressModel.fromJson(Map<String, dynamic> json) {
