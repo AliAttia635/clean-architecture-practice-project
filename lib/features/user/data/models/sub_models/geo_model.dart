@@ -1,12 +1,10 @@
 import 'package:clean_architecture_practice/core/networking/api_constants.dart';
 import 'package:clean_architecture_practice/features/user/domain/entities/sub_entities/geo_entity.dart';
 
-class GeoModel {
-  final String lat;
-  final String lng;
+class GeoModel extends GeoEntity {
   GeoModel({
-    required this.lat,
-    required this.lng,
+    required super.lat,
+    required super.lng,
   });
 
   factory GeoModel.fromJson(Map<String, dynamic> json) {

@@ -1,22 +1,19 @@
 import 'package:clean_architecture_practice/core/networking/api_constants.dart';
 import 'package:clean_architecture_practice/features/user/data/models/sub_models/address_model.dart';
 import 'package:clean_architecture_practice/features/user/data/models/sub_models/company_model.dart';
+import 'package:clean_architecture_practice/features/user/domain/entities/user_entity.dart';
 
-class UserModel {
+class UserModel extends UserEntity {
   final int id;
   final String username;
   final String website;
   final CompanyModel company;
-  final String name;
-  final String phone;
-  final String email;
-  final AddressModel address;
   UserModel({
     required this.id,
-    required this.name,
-    required this.phone,
-    required this.email,
-    required this.address,
+    required super.name,
+    required super.phone,
+    required super.email,
+    required super.address,
     required this.username,
     required this.website,
     required this.company,
