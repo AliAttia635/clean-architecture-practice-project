@@ -11,7 +11,7 @@ class UserRemoteDataSource {
   });
   Future<UserModel> getUser(UserParams userParams) async {
     final response =
-        await apiService.get(endPoint: "${ApiConstants.user}/${userParams.id}");
+        await apiService.get(endPoint: "${ApiConstants.user}${userParams.id}");
     return UserModel.fromJson(response);
   }
 }

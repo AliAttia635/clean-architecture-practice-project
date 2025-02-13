@@ -11,7 +11,7 @@ class ApiService {
   Future<dynamic> get(
       {required String endPoint, Map<String, dynamic>? queryParams}) async {
     var response = await _dio.get('${ApiConstants.baseUrl}$endPoint');
-    Map<String, dynamic> data = jsonDecode(response.data);
-    return data;
+    // Map<String, dynamic> data = jsonDecode(response.data); // because the response.data is is already a Map<String, dynamic> in my response
+    return response.data;
   }
 }

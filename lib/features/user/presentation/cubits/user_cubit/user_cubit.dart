@@ -14,7 +14,7 @@ class UserCubit extends Cubit<UserState> {
     this.getUserUseCase,
   ) : super(UserInitial());
 
-  void getUser({required String id}) async {
+  void getUser({required int id}) async {
     emit(UserLoaing());
 
     var result =

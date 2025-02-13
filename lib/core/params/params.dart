@@ -1,4 +1,4 @@
 class UserParams {
-  final String id;
+  final int id;
   UserParams({required this.id});
 }
